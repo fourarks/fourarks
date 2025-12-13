@@ -1,0 +1,48 @@
+{
+  "schemas": [
+    {
+      "name": "service",
+      "type": "document",
+      "fields": [
+        { "name": "title", "type": "string", "title": "Service Title" },
+        { "name": "description", "type": "text", "title": "Short Description" },
+        { "name": "icon", "type": "image", "title": "Service Icon" }
+      ]
+    },
+    {
+      "name": "project",
+      "type": "document",
+      "fields": [
+        { "name": "client", "type": "string", "title": "Client Name" },
+        { "name": "category", "type": "string", "title": "Project Category" },
+        { "name": "image", "type": "image", "title": "Cover Image" },
+        { "name": "results", "type": "string", "title": "Key Result (e.g. +40% Sales)" },
+        { "name": "description", "type": "text", "title": "Case Study Details" }
+      ]
+    },
+    {
+      "name": "offer",
+      "type": "document",
+      "fields": [
+        { "name": "title", "type": "string", "title": "Package Name" },
+        { "name": "priceRange", "type": "string", "title": "Price Range" },
+        { "name": "isPopular", "type": "boolean", "title": "Mark as Popular" },
+        { 
+          "name": "deliverables", 
+          "type": "array", 
+          "of": [{ "type": "string" }],
+          "title": "Deliverables List" 
+        }
+      ]
+    },
+    {
+      "name": "teamMember",
+      "type": "document",
+      "fields": [
+        { "name": "name", "type": "string", "title": "Name" },
+        { "name": "role", "type": "string", "title": "Job Title" },
+        { "name": "image", "type": "image", "title": "Portrait" }
+      ]
+    }
+  ]
+}
