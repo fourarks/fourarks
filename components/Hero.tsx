@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
                    Updated image source and removed complex masks to ensure visibility.
                 */}
                 <img 
-                    src="./assets/hero-img-bg.png"
+                    src="https://github.com/fourarks/fourarks/blob/main/assets/hero-img-bg.png"
                     alt="Futuristic Abstract Shape"
                     className="w-full h-full object-contain rounded-3xl mix-blend-screen drop-shadow-[0_0_30px_rgba(99,102,241,0.4)]"
                 />
