@@ -3,6 +3,27 @@ import Button from './Button';
 import { COMPANY_INFO } from '../constants';
 
 const Hero: React.FC = () => {
+  const HeroImg = new URL('../assets/images/hero.png', import.meta.url).href;
+  const [imgLoaded, setImgLoaded] = React.useState(false);
+
+  React.useEffect(() => {
+    // Preload the hero image with high priority
+    if (!HeroImg) return;
+    const existing = document.querySelector(`link[data-preload="hero"]`) as HTMLLinkElement | null;
+    if (!existing) {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = HeroImg;
+      link.setAttribute('data-preload', 'hero');
+      document.head.appendChild(link);
+      return () => {
+        // optional cleanup on unmount
+        link.remove();
+      };
+    }
+  }, [HeroImg]);
+  
   return (
     <section id="home" className="relative h-screen min-h-[800px] w-full flex items-center overflow-hidden bg-background">
       {/* 4K Video Background Loop */}
@@ -45,7 +66,7 @@ const Hero: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-[fadeIn_1.1s_ease-out]">
-            <Button onClick={() => window.open(COMPANY_INFO.calendlyUrl, '_blank')}>
+            <Button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
               Start Your Project
             </Button>
             <Button variant="outline" onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}>
@@ -63,7 +84,7 @@ const Hero: React.FC = () => {
                    Updated image source and removed complex masks to ensure visibility.
                 */}
                 <img 
-                    src="./assets/hero-img-bg.png"
+                    src={HeroImg}
                     alt="Futuristic Abstract Shape"
                     className="w-full h-full object-contain rounded-3xl mix-blend-screen drop-shadow-[0_0_30px_rgba(99,102,241,0.4)]"
                 />

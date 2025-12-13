@@ -43,13 +43,13 @@ const Features: React.FC = () => {
                 ))}
               </ul>
               
-              <Button 
+              {/* <Button 
                 variant={offer.isPopular ? 'primary' : 'secondary'}
                 onClick={() => window.open(COMPANY_INFO.calendlyUrl, '_blank')}
                 className="w-full"
               >
                 Start Project
-              </Button>
+              </Button> */}
             </div>
           ))}
         </div>

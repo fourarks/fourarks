@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center h-12">
             {/* Logo */}
             <a href="#home" className="font-heading text-2xl font-bold tracking-tight text-white flex items-center gap-1">
-            <span className="text-transparent bg-clip-text bg-gradient-primary">4</span>ARKS
+            <img src="../assets/images/logo.png" alt="4arks Logo" className="h-20 w-18 object-contain" />
             </a>
 
             {/* Desktop Links */}
