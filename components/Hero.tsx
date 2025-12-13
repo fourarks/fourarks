@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
       };
     }
   }, [HeroImg]);
-  
+
   return (
     <section id="home" className="relative h-screen min-h-[800px] w-full flex items-center overflow-hidden bg-background">
       {/* 4K Video Background Loop */}
