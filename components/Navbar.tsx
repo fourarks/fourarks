@@ -3,6 +3,7 @@ import { COMPANY_INFO } from '../constants';
 import Button from './Button';
 
 const Navbar: React.FC = () => {
+  const Logo = new URL('../assets/images/logo.png', import.meta.url).href;
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -28,7 +29,7 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center h-12">
             {/* Logo */}
             <a href="#home" className="font-heading text-2xl font-bold tracking-tight text-white flex items-center gap-1">
-            <img src="../assets/images/logo.png" alt="4arks Logo" className="h-20 w-18 object-contain" />
+            <img src={Logo} alt="4arks Logo" className="h-20 w-18 object-contain" />
             </a>
 
             {/* Desktop Links */}
