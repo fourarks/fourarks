@@ -1,24 +1,28 @@
-// Serverless relay for contact form submissions.
-// On Vercel set the server environment variable `CONTACT_WEBHOOK` to the
-// real webhook (Google Apps Script URL or other endpoint). This keeps the
-// webhook secret off the client.
+// Plain JavaScript serverless relay for contact form submissions.
+// This file is a fallback to ensure Vercel deploys the function even when
+// TypeScript build output doesn't include api/*.ts sources.
 
-import { IncomingMessage, ServerResponse } from 'http';
+export default async function handler(req, res) {
+  if (req.method === 'GET') {
+    const webhook = process.env.CONTACT_WEBHOOK || '';
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify({ enabled: !!webhook }));
+    return;
+  }
 
-export default async function handler(req: IncomingMessage & { body?: any }, res: ServerResponse) {
   if (req.method !== 'POST') {
     res.statusCode = 405;
-    res.setHeader('Allow', 'POST');
+    res.setHeader('Allow', 'GET, POST');
     res.end('Method Not Allowed');
     return;
   }
 
-  let payload: any = (req as any).body;
-  // Some platforms provide parsed body, if not, try to read raw JSON
+  let payload = req.body;
   if (!payload) {
     try {
-      const chunks: Buffer[] = [];
-      for await (const chunk of req as any) chunks.push(Buffer.from(chunk));
+      const chunks = [];
+      for await (const chunk of req) chunks.push(Buffer.from(chunk));
       const raw = Buffer.concat(chunks).toString('utf8') || '{}';
       payload = JSON.parse(raw);
     } catch (err) {
@@ -35,9 +39,9 @@ export default async function handler(req: IncomingMessage & { body?: any }, res
   }
 
   try {
-    let forwardRes: Response;
+    let forwardRes;
     if (webhook.includes('script.google.com')) {
-      const body = new URLSearchParams(payload as any).toString();
+      const body = new URLSearchParams(payload).toString();
       forwardRes = await fetch(webhook, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
@@ -62,9 +66,9 @@ export default async function handler(req: IncomingMessage & { body?: any }, res
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({ ok: true, body: text }));
-  } catch (err: any) {
+  } catch (err) {
     res.statusCode = 500;
     res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ error: String(err?.message || err) }));
+    res.end(JSON.stringify({ error: String(err && err.message ? err.message : err) }));
   }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SectionHeading from './SectionHeading';
 import Button from './Button';
 import { COMPANY_INFO, CONTACT_WEBHOOK } from '../constants';
@@ -19,6 +19,25 @@ const Contact: React.FC = () => {
 
   const [submitting, setSubmitting] = useState(false);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
+  const [serverRelayAvailable, setServerRelayAvailable] = useState(false);
+
+  useEffect(() => {
+    // Check if server-side relay (/api/contact) is enabled on the deployed server.
+    let mounted = true;
+    (async () => {
+      try {
+        const res = await fetch('/api/contact');
+        if (!mounted) return;
+        if (res.ok) {
+          const json = await res.json();
+          setServerRelayAvailable(!!json?.enabled);
+        }
+      } catch (err) {
+        // ignore
+      }
+    })();
+    return () => { mounted = false; };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -103,7 +122,7 @@ const Contact: React.FC = () => {
         <SectionHeading subtitle="Get Started" title="Let's Build Something Extraordinary" />
 
         <div className="glass-card p-8 md:p-12 rounded-3xl shadow-2xl">
-          {!CONTACT_WEBHOOK && (
+          {!CONTACT_WEBHOOK && !serverRelayAvailable && (
             <div className="mb-4 text-xs text-yellow-300 bg-yellow-900/10 p-2 rounded">Contact webhook not configured. Submissions will open the user's mail client as a fallback.</div>
           )}
           <form onSubmit={handleSubmit} className="space-y-6">
