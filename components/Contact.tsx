@@ -56,7 +56,27 @@ const Contact: React.FC = () => {
 
         setStatusMessage('Thank you — we received your request.');
       } else {
-        // Fallback: open mail client with prefilled content so user can still send an email
+        // Try server-side relay at /api/contact (useful on Vercel where the webhook
+        // is set as a server env var and should not be exposed to the client).
+        try {
+          const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+
+          if (res.ok) {
+            setStatusMessage('Thank you — we received your request.');
+            setFormData({ name: '', email: '', phone: '', business: '', budget: '', message: '' });
+            return;
+          }
+
+          // If server relay isn't available or returns an error, fall back to mail client
+          console.warn('Server relay /api/contact failed, falling back to mailto:', res.status);
+        } catch (err) {
+          console.warn('Error calling /api/contact, falling back to mailto', err);
+        }
+
         const subject = encodeURIComponent(`New contact from ${payload.name || 'website'}`);
         const body = encodeURIComponent(
           `Name: ${payload.name}\nBusiness: ${payload.business}\nEmail: ${payload.email}\nPhone: ${payload.phone}\nBudget: ${payload.budget}\nMessage:\n${payload.message}`
