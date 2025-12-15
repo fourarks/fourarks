@@ -49,3 +49,19 @@ This project uses a structured data approach in `constants.ts` that maps 1:1 wit
 ## Deployment
 
 See `deploy.md` for deployment instructions.
+
+## Contact form webhook
+
+To enable the contact form to send submissions to Google Sheets (via the Apps Script Web App), set the `VITE_CONTACT_WEBHOOK` environment variable in a `.env` file at the project root:
+
+```
+VITE_CONTACT_WEBHOOK=https://script.google.com/macros/s/XXXXXXXXXXXX/exec
+```
+
+Then restart the dev server so Vite picks up the env var:
+
+```bash
+npm run dev
+```
+
+If you don't set this variable, the contact form will open the user's mail client as a fallback. See `scripts/google_apps_script.gs` for the Apps Script code to deploy as a Web App.

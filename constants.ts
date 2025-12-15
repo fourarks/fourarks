@@ -8,6 +8,10 @@ export const COMPANY_INFO = {
   calendlyUrl: "https://calendly.com/", // Placeholder
 };
 
+// Webhook URL that will receive contact form submissions.
+// Set VITE_CONTACT_WEBHOOK in your environment (e.g., .env) to a Google Apps Script Web App URL or your serverless endpoint.
+export const CONTACT_WEBHOOK = (import.meta.env.VITE_CONTACT_WEBHOOK as string) || '';
+
 export const SERVICES: Service[] = [
   { 
     id: 'branding', 
