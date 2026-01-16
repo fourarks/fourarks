@@ -1,67 +1,20 @@
-# 4ARKS Agency Website
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-A modern, high-performance agency website built with React and Tailwind CSS. The design features a "Cyber-SaaS" aesthetic with deep navy backgrounds, glassmorphism effects, and vibrant gradients.
+# Run and deploy your AI Studio app
 
-## Tech Stack
+This contains everything you need to run your app locally.
 
-- **Framework**: React (Next.js compatible structure)
-- **Styling**: Tailwind CSS
-- **3D/AR**: `<model-viewer>`
-- **Icons**: Custom SVG & Lucide-style structure
-- **Fonts**: Outfit (Headings), Inter (Body)
+View your app in AI Studio: https://ai.studio/apps/drive/1-ntRL4Rv1HMlqlaRDiH6V52NoqjJXpZw
 
-## Project Structure
+## Run Locally
 
-- `/components`: Reusable UI components (Hero, Navbar, Services, etc.)
-- `/assets`: (Create this folder for local images and GLB models)
-- `App.tsx`: Main layout assembler
-- `constants.ts`: Content source of truth (CMS placeholder)
-- `types.ts`: TypeScript definitions
+**Prerequisites:**  Node.js
 
-## Customization
 
-### 1. Branding & Content
-Edit `src/constants.ts` to update:
-- Company Name, Email, Phone
-- Service offerings and descriptions
-- Pricing packages
-- Case studies and Team members
-
-### 2. Images & 3D Models
-Replace placeholder URLs in components with your local assets:
-- **Hero Video/Image**: Update `components/Hero.tsx`
-- **3D Models**: Place `.glb` files in `public/assets/` and update `src` in `components/ARShowcase.tsx`.
-- **Team/Portfolio**: Update image URLs in `constants.ts`.
-
-### 3. Colors & Theme
-The theme is defined in `index.html` within the `tailwind.config` script.
-- `background`: Main dark background (`#020617`)
-- `accent`: Primary Purple/Indigo (`#6366f1`)
-- `accentCyan`: Secondary Cyan (`#06b6d4`)
-
-## CMS Integration (Sanity.io recommended)
-
-This project uses a structured data approach in `constants.ts` that maps 1:1 with CMS schemas.
-1. Create a Sanity project.
-2. Use the schemas provided in `content-schema.json`.
-3. Replace `constants.ts` with a fetch call to your Sanity client.
-
-## Deployment
-
-See `deploy.md` for deployment instructions.
-
-## Contact form webhook
-
-To enable the contact form to send submissions to Google Sheets (via the Apps Script Web App), set the `VITE_CONTACT_WEBHOOK` environment variable in a `.env` file at the project root:
-
-```
-VITE_CONTACT_WEBHOOK=https://script.google.com/macros/s/XXXXXXXXXXXX/exec
-```
-
-Then restart the dev server so Vite picks up the env var:
-
-```bash
-npm run dev
-```
-
-If you don't set this variable, the contact form will open the user's mail client as a fallback. See `scripts/google_apps_script.gs` for the Apps Script code to deploy as a Web App.
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
