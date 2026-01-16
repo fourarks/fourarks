@@ -1,8 +1,8 @@
-
 import React, { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { SERVICES } from '../constants';
 import { Check, ArrowRight, ChevronRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const ServiceDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -16,6 +16,10 @@ const ServiceDetail: React.FC = () => {
 
   return (
     <div className="animate-in fade-in duration-700">
+      <SEO
+        title={service.title}
+        description={`FourArks (4arks) - ${service.title}: ${service.description}`}
+      />
       <div className="max-w-7xl mx-auto px-6 py-20">
         {/* Breadcrumb */}
         <div className="flex items-center space-x-2 text-[10px] uppercase tracking-widest text-chocolate/40 mb-12">
@@ -57,7 +61,7 @@ const ServiceDetail: React.FC = () => {
                 </div>
               ))}
             </div>
-            
+
             <div className="mt-12 pt-12 border-t border-offwhite/10">
               <h3 className="text-2xl font-serif mb-6">Deliverables</h3>
               <ul className="grid grid-cols-1 gap-4">

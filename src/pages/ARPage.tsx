@@ -1,14 +1,18 @@
-
 import React, { useState } from 'react';
 import { Smartphone, Eye, Maximize, MousePointer2, Move, Layers } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ScrollReveal from '../components/ui/ScrollReveal';
+import SEO from '../components/SEO';
 
 const ModelViewer = 'model-viewer' as any;
 
 const ARPage: React.FC = () => {
   return (
     <div>
+      <SEO
+        title="AR Visualization"
+        description="Experience the future of brand engagement with FourArks' AR Visual Systems. We build immersive, high-fidelity augmented reality experiences for high-end products."
+      />
       <section className="bg-chocolate text-offwhite py-32 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <ScrollReveal className="relative z-10">

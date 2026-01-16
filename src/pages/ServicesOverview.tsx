@@ -1,15 +1,19 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SERVICES } from '../constants';
 import { ArrowRight } from 'lucide-react';
 import ScrollReveal from '../components/ui/ScrollReveal';
+import SEO from '../components/SEO';
 
 const ServicesOverview: React.FC = () => {
   const categories = ['Creative', 'Technology', 'Growth', 'USP'];
 
   return (
     <div className="px-6 max-w-7xl mx-auto py-20">
+      <SEO
+        title="Services Overview"
+        description="Explore FourArks' full spectrum of high-end digital services, including Brand Architecture, AR Visualization, and Web Engineering."
+      />
       <ScrollReveal className="max-w-3xl mb-24">
         <span className="text-ivory text-xs uppercase tracking-widest font-bold block mb-4">Service Capabilities</span>
         <h1 className="text-5xl md:text-7xl font-serif mb-8">Our Specializations</h1>
@@ -28,7 +32,7 @@ const ServicesOverview: React.FC = () => {
                 <div className="h-px bg-chocolate/10 flex-grow"></div>
               </div>
             </ScrollReveal>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
               {SERVICES.filter(s => s.category === cat || (cat === 'USP' && s.id === 'ar-product-visualization')).map((service, index) => (
                 <ScrollReveal key={service.id} delayClass={index % 3 === 1 ? 'reveal-delay-200' : index % 3 === 2 ? 'reveal-delay-400' : undefined}>

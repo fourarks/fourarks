@@ -1,11 +1,15 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { HelpCircle, Info, Calculator, FileText } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const PricingPage: React.FC = () => {
   return (
     <div className="animate-in fade-in duration-700 px-6 max-w-7xl mx-auto py-20">
+      <SEO
+        title="Investment Strategy"
+        description="FourArks (4arks) delivers value-based digital assets and systems. Our pricing reflects the complexity and objective outcomes of each tailored project."
+      />
       <div className="max-w-3xl mb-32">
         <span className="text-ivory text-xs uppercase tracking-widest font-bold block mb-4">Investment Strategy</span>
         <h1 className="text-5xl md:text-8xl font-serif mb-8 leading-tight">Value-Based <br /><span className="italic">Proposals.</span></h1>
@@ -78,7 +82,7 @@ const PricingPage: React.FC = () => {
           </Link>
         </div>
       </div>
-      
+
       <div className="mt-40 text-center text-chocolate/30 text-[10px] uppercase tracking-[0.4em] font-bold">
         Transparency . Precision . Partnership
       </div>

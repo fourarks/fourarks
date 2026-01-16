@@ -1,11 +1,15 @@
-
 import React from 'react';
 import { PROCESS_STEPS } from '../constants';
 import ScrollReveal from '../components/ui/ScrollReveal';
+import SEO from '../components/SEO';
 
 const ProcessPage: React.FC = () => {
   return (
     <div className="px-6 max-w-7xl mx-auto py-20">
+      <SEO
+        title="Our Method"
+        description="Discover FourArks' proprietary delivery framework. We treat digital growth as a series of engineering milestones, ensuring precision and calculated execution for every project."
+      />
       <ScrollReveal className="max-w-3xl mb-32">
         <span className="text-ivory text-xs uppercase tracking-widest font-bold block mb-4">Our Method</span>
         <h1 className="text-5xl md:text-8xl font-serif mb-8 leading-tight">Precision in Execution.</h1>
@@ -16,7 +20,7 @@ const ProcessPage: React.FC = () => {
 
       <div className="relative">
         <div className="hidden lg:block absolute left-24 top-0 bottom-0 w-px bg-chocolate/10"></div>
-        
+
         <div className="space-y-40">
           {PROCESS_STEPS.map((step, idx) => (
             <ScrollReveal key={idx}>

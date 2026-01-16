@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, AlertCircle, CheckCircle, Loader } from 'lucide-react';
+import SEO from '../components/SEO';
 
 interface FormData {
   fullName: string;
@@ -101,6 +101,10 @@ const ContactPage: React.FC = () => {
 
   return (
     <div className="animate-in fade-in duration-700 px-6 max-w-7xl mx-auto py-20">
+      <SEO
+        title="Contact"
+        description="Initiate a dialogue with FourArks (4arks). Let's discuss your project's architectural needs, from AR visualization to full-scale digital growth."
+      />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
         <div>
           <span className="text-ivory text-xs uppercase tracking-widest font-bold block mb-4">Engagement</span>

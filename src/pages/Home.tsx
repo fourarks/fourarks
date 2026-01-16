@@ -1,10 +1,10 @@
-
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { SERVICES } from '../constants';
 import AnimatedShaderHero from '../components/ui/AnimatedShaderHero';
 import ScrollReveal from '../components/ui/ScrollReveal';
+import SEO from '../components/SEO';
 
 const ModelViewer = 'model-viewer' as any;
 
@@ -13,6 +13,10 @@ const Home: React.FC = () => {
 
   return (
     <div className="animate-in fade-in">
+      <SEO
+        title="Home"
+        description="FourArks (4arks) - A premium digital agency architecting elite brand identities and immersive augmented reality systems through structural logic and tactical precision."
+      />
       {/* High-End Animated Shader Hero Section Reverted to Original Full-Screen Layout */}
       <AnimatedShaderHero
         trustBadge={{
