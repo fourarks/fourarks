@@ -33,7 +33,7 @@ const ARPage: React.FC = () => {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal className="relative aspect-square md:aspect-[4/5] bg-ivory/5 border border-ivory/20 group cursor-grab active:cursor-grabbing overflow-hidden shadow-2xl">
+          <ScrollReveal className="relative aspect-square md:aspect-4/5 bg-ivory/5 border border-ivory/20 group cursor-grab active:cursor-grabbing overflow-hidden shadow-2xl">
             <ModelViewer
               src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
               ios-src="https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
@@ -53,7 +53,7 @@ const ARPage: React.FC = () => {
                 <span className="text-[9px] uppercase tracking-[0.3em] font-black text-ivory">Drag to rotate</span>
               </div>
             </ModelViewer>
-            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-chocolate to-transparent pointer-events-none"></div>
+            <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-chocolate to-transparent pointer-events-none"></div>
           </ScrollReveal>
         </div>
       </section>

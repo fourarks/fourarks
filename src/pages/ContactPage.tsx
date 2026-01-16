@@ -112,21 +112,21 @@ const ContactPage: React.FC = () => {
 
           <div className="space-y-12 mt-20">
             <div className="flex items-start gap-6">
-              <Mail className="text-ivory flex-shrink-0" size={24} />
+              <Mail className="text-ivory shrink-0" size={24} />
               <div>
                 <h4 className="text-xs uppercase tracking-widest font-bold mb-2">Correspondence</h4>
                 <p className="text-xl font-light text-chocolate hover:text-ivory transition-colors cursor-pointer">4arks2025@gmail.com</p>
               </div>
             </div>
             <div className="flex items-start gap-6">
-              <Phone className="text-ivory flex-shrink-0" size={24} />
+              <Phone className="text-ivory shrink-0" size={24} />
               <div>
                 <h4 className="text-xs uppercase tracking-widest font-bold mb-2">Direct Line</h4>
                 <p className="text-xl font-light text-chocolate">+91 92023 82254</p>
               </div>
             </div>
             <div className="flex items-start gap-6">
-              <MapPin className="text-ivory flex-shrink-0" size={24} />
+              <MapPin className="text-ivory shrink-0" size={24} />
               <div>
                 <h4 className="text-xs uppercase tracking-widest font-bold mb-2">Studio Presence</h4>
                 <p className="text-xl font-light text-chocolate">Bhopal</p>
@@ -155,7 +155,7 @@ const ContactPage: React.FC = () => {
               {/* Error Message */}
               {status.type === 'error' && (
                 <div className="bg-red-900/20 border border-red-500/50 p-4 rounded flex items-start gap-3 animate-in fade-in duration-300">
-                  <AlertCircle className="text-red-400 flex-shrink-0 mt-0.5" size={20} />
+                  <AlertCircle className="text-red-400 shrink-0 mt-0.5" size={20} />
                   <p className="text-sm text-red-200">{status.message}</p>
                 </div>
               )}

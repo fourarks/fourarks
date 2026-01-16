@@ -80,7 +80,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu Overlay - Outside nav to avoid containment issues */}
       {isOpen && (
-        <div className="fixed inset-0 bg-offwhite z-[100] flex flex-col items-center justify-center space-y-10 animate-in fade-in zoom-in duration-300">
+        <div className="fixed inset-0 bg-offwhite z-100 flex flex-col items-center justify-center space-y-10 animate-in fade-in zoom-in duration-300">
           <button
             className="absolute top-10 right-10 text-chocolate hover:text-ivory transition-colors p-2"
             onClick={() => setIsOpen(false)}
@@ -164,7 +164,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   return (
     <div className="min-h-screen flex flex-col font-sans selection:bg-ivory selection:text-offwhite bg-offwhite">
       <Navbar />
-      <main className={`flex-grow ${shouldHaveMargin ? 'mt-24' : ''}`}>
+      <main className={`grow ${shouldHaveMargin ? 'mt-24' : ''}`}>
         {children}
       </main>
       <Footer />

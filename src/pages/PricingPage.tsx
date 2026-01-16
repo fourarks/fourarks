@@ -59,7 +59,7 @@ const PricingPage: React.FC = () => {
           <h3 className="text-4xl font-serif mb-8">The Path to a Proposal</h3>
           <div className="space-y-12">
             <div className="flex gap-6">
-              <div className="flex-shrink-0 w-12 h-12 border border-offwhite/20 flex items-center justify-center">
+              <div className="shrink-0 w-12 h-12 border border-offwhite/20 flex items-center justify-center">
                 <Calculator size={20} className="text-ivory" />
               </div>
               <div>
@@ -68,7 +68,7 @@ const PricingPage: React.FC = () => {
               </div>
             </div>
             <div className="flex gap-6">
-              <div className="flex-shrink-0 w-12 h-12 border border-offwhite/20 flex items-center justify-center">
+              <div className="shrink-0 w-12 h-12 border border-offwhite/20 flex items-center justify-center">
                 <FileText size={20} className="text-ivory" />
               </div>
               <div>

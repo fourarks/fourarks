@@ -215,7 +215,7 @@ const AnimatedShaderHero: React.FC<HeroProps> = ({
 
         <div className="space-y-6 pointer-events-auto">
           <div className="space-y-4">
-            <h1 className="text-3xl md:text-4xl lg:text-[clamp(2.5rem,6vw,4.5rem)] font-serif leading-[1] tracking-tight bg-gradient-to-r from-offwhite via-ivory to-offwhite bg-clip-text text-transparent animate-fade-in-up delay-200">
+            <h1 className="text-3xl md:text-4xl lg:text-[clamp(2.5rem,6vw,4.5rem)] font-serif leading-none tracking-tight bg-linear-to-r from-offwhite via-ivory to-offwhite bg-clip-text text-transparent animate-fade-in-up delay-200">
               {headline.line1}
             </h1>
             <h1 className="text-4xl md:text-6xl lg:text-[clamp(3.5rem,8vw,7.5rem)] font-black uppercase tracking-tighter leading-[0.85] text-offwhite animate-fade-in-up delay-400">

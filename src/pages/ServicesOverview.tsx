@@ -27,9 +27,9 @@ const ServicesOverview: React.FC = () => {
           <div key={cat} className="group">
             <ScrollReveal>
               <div className="flex items-center space-x-4 mb-12">
-                <div className="h-px bg-chocolate/10 flex-grow"></div>
+                <div className="h-px bg-chocolate/10 grow"></div>
                 <h2 className="text-xs uppercase tracking-[0.3em] font-bold text-ivory">{cat}</h2>
-                <div className="h-px bg-chocolate/10 flex-grow"></div>
+                <div className="h-px bg-chocolate/10 grow"></div>
               </div>
             </ScrollReveal>
 
