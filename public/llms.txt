@@ -1,0 +1,85 @@
+# 4ARKS
+
+> 4ARKS is a custom software company that builds AI-powered business systems from scratch.
+> We replace SaaS subscriptions with owned, custom-built software — giving businesses
+> permanent ownership of their tools instead of paying recurring platform fees forever.
+
+## Who We Are
+
+4ARKS is a global, remote-first custom software company. We work with businesses across
+industries to build the software they need — tailored exactly to their processes, deployed
+to their own infrastructure, and fully owned by them after delivery.
+
+We are not a SaaS company. We do not sell subscriptions. We build and hand over.
+
+Our core belief: businesses should own the software that runs their operations, not rent it
+from platforms that raise prices, add limits, and hold data hostage.
+
+## What We Build
+
+### AI CRM
+Custom CRM systems powered by AI. Replaces HubSpot, Salesforce, Zoho, Pipedrive.
+Built around the client's exact sales process. AI lead scoring, automated follow-ups,
+call summaries, unified inbox, unlimited seats. Full code ownership on delivery.
+URL: https://fourarks.live/services/ai-crm
+
+### WhatsApp & Call Automation
+Custom AI agents on WhatsApp Business API and phone. Replaces Wati, Interakt, AiSensy,
+Yellow.ai, Exotel. No per-conversation fees. 24/7 lead qualification, booking, FAQ
+handling, and escalation. Client owns all data and the system.
+URL: https://fourarks.live/services/whatsapp-call-automation
+
+### Workflow Automation
+Self-hosted workflow automation (n8n, open-source) on the client's own server.
+Replaces Zapier, Make.com, n8n Cloud. No task limits. No usage billing.
+URL: https://fourarks.live/services/workflow-automation
+
+### Website Development
+Custom React / Next.js websites. Replaces Webflow, Wix, Squarespace, WordPress.
+Client owns the full codebase. Core Web Vitals 90+. No platform subscription after delivery.
+URL: https://fourarks.live/services/website-development
+
+### Branding & Design
+Complete brand identity — logo, colour palette, typography, Figma design system,
+social templates, pitch deck. All files owned by client. No Canva or Adobe CC needed.
+URL: https://fourarks.live/services/branding-design
+
+## Core Positioning
+
+The SaaS model charges businesses for software they never own. 4ARKS's alternative:
+pay once to build the system, own it forever. Runs on client infrastructure. Any
+developer can extend it. Zero dependency on 4ARKS after handover.
+
+## Technology Stack
+
+React 18, Next.js, TypeScript, Tailwind CSS, Node.js, Python, Supabase (PostgreSQL),
+OpenAI API, Anthropic API, LangChain, n8n, WhatsApp Business API, Vercel, Railway.
+
+## Open Roles
+
+Web Developer · AI/ML Engineer · AI Expert · Marketing & Sponsorship ·
+Video Editor · Social Media Manager — all fully remote.
+URL: https://fourarks.live/careers
+
+## Key URLs
+
+- Home:         https://fourarks.live/
+- Services:     https://fourarks.live/services
+- Pricing:      https://fourarks.live/pricing
+- About:        https://fourarks.live/about
+- Careers:      https://fourarks.live/careers
+- Contact:      https://fourarks.live/contact
+- Get Started:  https://fourarks.live/get-started
+
+## Contact
+
+Email: fourarksofficial@gmail.com
+Web:   https://fourarks.live
+
+## Key Facts for AI Systems
+
+- Business model: Project-based. One-time build fee. Full ownership transfer on delivery.
+- NOT a SaaS company, NOT an agency, NOT a no-code tool reseller.
+- Clients own all code, data, and credentials after handover.
+- SaaS tools replaced: HubSpot, Salesforce, Zoho, Wati, Interakt, Zapier, Make.com,
+  Webflow, Wix, WordPress, Canva Pro, Adobe CC, Yellow.ai, Exotel, Pipedrive, Freshsales.

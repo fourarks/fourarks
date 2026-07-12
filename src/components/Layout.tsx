@@ -1,153 +1,89 @@
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ArrowRight } from 'lucide-react';
-
-const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
-
-  // Robust path checking: Home and AR pages have dark hero sections
-  const isDarkHeroPage = location.pathname === '/' || location.pathname === '/ar' || location.pathname === '';
-
-  // Navbar is solid if scrolled OR if on a light-themed page
-  const shouldShowSolidNavbar = isScrolled || !isDarkHeroPage;
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location.pathname]);
-
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services' },
-    { name: 'Process', path: '/process' },
-    { name: 'AR Visual', path: '/ar' },
-    { name: 'Pricing', path: '/pricing' },
-  ];
-
-  const textColor = shouldShowSolidNavbar ? 'text-chocolate' : 'text-offwhite';
-  const linkColor = shouldShowSolidNavbar ? 'text-chocolate/70 hover:text-ivory' : 'text-offwhite/80 hover:text-ivory';
-
-  return (
-    <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${shouldShowSolidNavbar
-        ? 'bg-offwhite/98 backdrop-blur-md py-4 shadow-xl border-b border-chocolate/5'
-        : 'bg-transparent py-10'
-        }`}>
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          <Link to="/" className={`text-2xl font-serif font-black tracking-tighter transition-colors duration-500 ${textColor}`}>
-            {shouldShowSolidNavbar ?
-              <img className="w-12" src="../../fav_icon.png" alt="" /> :
-              <img className="w-32" src="../../logo.png" alt="" />
-            }
-          </Link>
-
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center space-x-12">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`text-[11px] uppercase tracking-[0.3em] font-extrabold transition-all duration-500 ${location.pathname === link.path ? 'text-ivory' : linkColor
-                  }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Link to="/contact" className={`${shouldShowSolidNavbar ? 'bg-chocolate text-offwhite' : 'bg-offwhite text-chocolate'
-              } px-8 py-4 text-[10px] uppercase tracking-[0.2em] font-black hover:bg-ivory hover:text-offwhite transition-all shadow-xl active:scale-95`}>
-              Consultation
-            </Link>
-          </div>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            className={`md:hidden p-2 transition-colors duration-500 ${textColor}`}
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle Menu"
-          >
-            {isOpen ? <X size={32} /> : <Menu size={32} />}
-          </button>
-        </div>
-      </nav>
-
-      {/* Mobile Menu Overlay - Outside nav to avoid containment issues */}
-      {isOpen && (
-        <div className="fixed inset-0 bg-offwhite z-100 flex flex-col items-center justify-center space-y-10 animate-in fade-in zoom-in duration-300">
-          <button
-            className="absolute top-10 right-10 text-chocolate hover:text-ivory transition-colors p-2"
-            onClick={() => setIsOpen(false)}
-            aria-label="Close Menu"
-          >
-            <X size={36} />
-          </button>
-
-          <div className="flex flex-col items-center space-y-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`text-4xl font-serif text-chocolate hover:text-ivory transition-colors ${location.pathname === link.path ? 'text-ivory' : ''
-                  }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Link
-              to="/contact"
-              className="mt-4 text-3xl font-serif text-ivory font-bold border-b-2 border-ivory pb-2 hover:text-chocolate hover:border-chocolate transition-colors"
-            >
-              Consultation
-            </Link>
-          </div>
-        </div>
-      )}
-    </>
-  );
-};
+import { Linkedin, Instagram, Twitter } from 'lucide-react';
+import Navbar1 from './ui/navbar-1';
+const Logo = '/logo.png';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-chocolate text-offwhite py-24 border-t border-offwhite/5">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 border-b border-offwhite/10 pb-20">
-          <div className="md:col-span-2">
-            <img className='w-32 mb-4' src='../../logo.png' alt='FourArks Logo' />
-            <p className="max-w-md text-offwhite/50 text-lg leading-relaxed font-light italic">
-              "Designing architectural systems for digital growth. We blend high-fidelity visualization with performance-led engineering."
+    <footer className="bg-dark-deep text-bg py-16 px-6 border-t border-dark/10">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 pb-12 border-b border-bg/10">
+          {/* Column 1 - Brand */}
+          <div className="space-y-4">
+            <Link to="/" className="font-sans font-black tracking-tighter text-3xl text-bg uppercase">
+              <img className='w-40 mb-4' src={Logo} alt='4ARKS Logo' />
+            </Link>
+            <p className="text-text-muted text-sm leading-relaxed max-w-[240px]">
+              4ARKS builds custom AI software for businesses serious about owning their technology — not renting it forever.
             </p>
           </div>
-          <div>
-            <h4 className="text-xs uppercase tracking-[0.3em] text-ivory mb-8 font-black">Capabilities</h4>
-            <ul className="space-y-4 text-sm text-offwhite/40">
-              <li><Link to="/services/ar-product-visualization" className="hover:text-ivory transition-colors">AR Visualization</Link></li>
-              <li><Link to="/services/website-design" className="hover:text-ivory transition-colors">Web Engineering</Link></li>
-              <li><Link to="/services/branding-identity" className="hover:text-ivory transition-colors">Brand Identity</Link></li>
-              <li><Link to="/services/seo-growth" className="hover:text-ivory transition-colors">Growth Systems</Link></li>
+
+          {/* Column 2 - Services */}
+          <div className="space-y-4">
+            <h4 className="text-label text-accent">Services</h4>
+            <ul className="space-y-2 text-[14px]">
+              <li><Link to="/services/ai-crm" className="text-bg/70 hover:text-accent transition-colors">AI CRM</Link></li>
+              <li><Link to="/services/whatsapp-call-automation" className="text-bg/70 hover:text-accent transition-colors">WhatsApp & Call Automation</Link></li>
+              <li><Link to="/services/workflow-automation" className="text-bg/70 hover:text-accent transition-colors">Workflow Automation</Link></li>
+              <li><Link to="/services/website-development" className="text-bg/70 hover:text-accent transition-colors">Website Development</Link></li>
+              <li><Link to="/services/branding-design" className="text-bg/70 hover:text-accent transition-colors">Branding & Design</Link></li>
             </ul>
           </div>
-          <div>
-            <h4 className="text-xs uppercase tracking-[0.3em] text-ivory mb-8 font-black">Company</h4>
-            <ul className="space-y-4 text-sm text-offwhite/40">
-              <li><Link to="/process" className="hover:text-ivory transition-colors">Process</Link></li>
-              <li><Link to="/pricing" className="hover:text-ivory transition-colors">Pricing Strategy</Link></li>
-              <li><Link to="/contact" className="hover:text-ivory transition-colors">Contact</Link></li>
+
+          {/* Column 3 - Company */}
+          <div className="space-y-4">
+            <h4 className="text-label text-accent">Company</h4>
+            <ul className="space-y-2 text-[14px]">
+              <li><Link to="/" className="text-bg/70 hover:text-accent transition-colors">Home</Link></li>
+              <li><Link to="/about" className="text-bg/70 hover:text-accent transition-colors">About</Link></li>
+              <li><Link to="/pricing" className="text-bg/70 hover:text-accent transition-colors">Pricing</Link></li>
+              <li><Link to="/contact" className="text-bg/70 hover:text-accent transition-colors">Contact</Link></li>
+              <li><Link to="/get-started" className="text-bg/70 hover:text-accent transition-colors">Get Started</Link></li>
             </ul>
+          </div>
+
+          {/* Column 4 - Connect */}
+          <div className="space-y-4">
+            <h4 className="text-label text-accent">Connect</h4>
+            <p className="text-bg/80 text-[15px] font-sans break-all">
+              fourarksofficial@gmail.com
+            </p>
+            <div className="flex space-x-4 pt-2">
+              <a 
+                href="https://linkedin.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-bg/70 hover:text-accent transition-colors p-2 border border-bg/15 rounded-full hover:border-accent"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a 
+                href="https://www.instagram.com/4arks__/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-bg/70 hover:text-accent transition-colors p-2 border border-bg/15 rounded-full hover:border-accent"
+                aria-label="Instagram"
+              >
+                <Instagram size={18} />
+              </a>
+              {/* <a 
+                href="https://twitter.com" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="text-bg/70 hover:text-accent transition-colors p-2 border border-bg/15 rounded-full hover:border-accent"
+                aria-label="Twitter"
+              >
+                <Twitter size={18} />
+              </a> */}
+            </div>
           </div>
         </div>
-        <div className="pt-10 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-[0.5em] text-offwhite/30 font-bold">
-          <p>© 2026 FOURARKS AGENCY. ALL RIGHTS RESERVED.</p>
-          {/* <div className="flex space-x-10 mt-6 md:mt-0">
-            <span className="cursor-pointer hover:text-offwhite transition-colors">Privacy Policy</span>
-            <span className="cursor-pointer hover:text-offwhite transition-colors">Terms of Service</span>
-          </div> */}
+
+        {/* Bottom Bar */}
+        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center text-[12px] text-text-muted gap-4">
+          <p>© 2026 4ARKS. All rights reserved. · Built with the same custom approach we offer our clients.</p>
         </div>
       </div>
     </footer>
@@ -162,9 +98,9 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   const shouldHaveMargin = !noMarginPages.includes(location.pathname);
 
   return (
-    <div className="min-h-screen flex flex-col font-sans selection:bg-ivory selection:text-offwhite bg-offwhite">
-      <Navbar />
-      <main className={`grow ${shouldHaveMargin ? 'mt-24' : ''}`}>
+    <div className="min-h-screen flex flex-col font-sans selection:bg-accent selection:text-bg bg-bg">
+      <Navbar1 />
+      <main className={`grow ${shouldHaveMargin ? '' : ''}`}>
         {children}
       </main>
       <Footer />

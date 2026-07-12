@@ -16,7 +16,7 @@ const SEO: React.FC<SEOProps> = ({
     description,
     canonical,
     ogType = 'website',
-    ogImage = '/og-image.png', // Fallback OG image
+    ogImage = '/logo.png', // Fallback OG image
     twitterHandle = '@fourarks',
 }) => {
     const siteName = 'FourArks';
