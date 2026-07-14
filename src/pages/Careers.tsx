@@ -224,6 +224,14 @@ const rolesData: Role[] = [
     skills: ['Premiere Pro / DaVinci Resolve', 'After Effects', 'Motion Graphics', 'Short-form Content']
   },
   {
+    id: 'graphic-designer',
+    title: 'Graphic Designer',
+    badge: 'Part-time / Full-time · Remote',
+    stack: 'Figma · Photoshop · Illustrator',
+    description: "Design stunning visual assets, brand identities, UI/UX mockups, and marketing materials. You will work closely with our development and marketing teams to ensure our brand and our clients' brands look incredibly premium and modern.",
+    skills: ['Figma', 'Adobe Creative Suite', 'UI/UX Design', 'Brand Identity']
+  },
+  {
     id: 'social-media-manager',
     title: 'Social Media Manager',
     badge: 'Part-time · Remote',

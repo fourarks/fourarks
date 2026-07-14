@@ -474,6 +474,7 @@ export function ApplicationForm({ selectedRole, onClearSelectedRole }: Applicati
                   { value: 'ai-expert', label: 'AI Expert' },
                   { value: 'marketing-sponsorship', label: 'Marketing & Sponsorship' },
                   { value: 'video-editor', label: 'Video Editor' },
+                  { value: 'graphic-designer', label: 'Graphic Designer' },
                   { value: 'social-media-manager', label: 'Social Media Manager' },
                   { value: 'other', label: 'Other / Open Application' }
                 ];

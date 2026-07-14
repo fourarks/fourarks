@@ -45,6 +45,7 @@ export const careerSchema = z.object({
                  'ai-expert',
                  'marketing-sponsorship',
                  'video-editor',
+                 'graphic-designer',
                  'social-media-manager',
                  'other'
                ] as const, { message: "Please select the role you're applying for" }),
